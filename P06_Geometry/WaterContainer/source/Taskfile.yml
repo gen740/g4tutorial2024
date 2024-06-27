@@ -20,4 +20,4 @@ tasks:
   run:
     cmds:
       - task: build
-      - ./build/Application_Main
+      - ./build/Application_Main 
