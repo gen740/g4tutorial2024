@@ -5,19 +5,17 @@
 #define PrimaryGenerator_h 1
 
 #include "G4VUserPrimaryGeneratorAction.hh"
-#include "G4ThreeVector.hh"
 class G4ParticleDefinition;
 class G4Event;
 
 //------------------------------------------------------------------------------
-  class PrimaryGenerator : public G4VUserPrimaryGeneratorAction
+class PrimaryGenerator : public G4VUserPrimaryGeneratorAction
 //------------------------------------------------------------------------------
 {
-  public:
-    PrimaryGenerator();
-   ~PrimaryGenerator() override;
+ public:
+  PrimaryGenerator();
+  ~PrimaryGenerator() override;
 
-  public:
-    void GeneratePrimaries( G4Event* ) override;
+  void GeneratePrimaries(G4Event* /*anEvent*/) override;
 };
 #endif
