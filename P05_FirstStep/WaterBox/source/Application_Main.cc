@@ -2,6 +2,7 @@
 // Geant4 Tutorial for Hep/Space/Medicine Users
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #include <G4SystemOfUnits.hh>
+
 #include "FTFP_BERT.hh"
 #include "G4RunManager.hh"
 #include "G4UIExecutive.hh"
@@ -11,7 +12,7 @@
 #include "UserActionInitialization.hh"
 
 //-------------------------------------------------------------------------------
-int main(int argc, char** argv)
+auto main(int argc, char** argv) -> int
 //-------------------------------------------------------------------------------
 {
   // Construct a run manager
