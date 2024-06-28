@@ -1,5 +1,5 @@
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Geometry.hh 
+// Geometry.hh
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #ifndef Geometry_h
 #define Geometry_h 1
@@ -10,26 +10,24 @@ class G4VPhysicalVolume;
 class SimData;
 
 //-------------------------------------------------------------------------
-  class Geometry : public G4VUserDetectorConstruction
+class Geometry : public G4VUserDetectorConstruction
 //-------------------------------------------------------------------------
 {
-  public:
-    Geometry();
-   ~Geometry() override;
+ public:
+  Geometry();
+  ~Geometry() override;
 
-    G4VPhysicalVolume* Construct() override;
-    
+  auto Construct() -> G4VPhysicalVolume* override;
 
-    void SetSimData(SimData* data);
+  void SetSimData(SimData* data);
 
-  private:
-	SimData* simdata ;
+ private:
+  SimData* simdata;
 };
 
-inline void Geometry::SetSimData(SimData* data)
-	{
-	  G4cout << "Geometry::SetSimData " << G4endl;
-	  simdata = data ;
-	}
+inline void Geometry::SetSimData(SimData* data) {
+  G4cout << "Geometry::SetSimData " << G4endl;
+  simdata = data;
+}
 
 #endif

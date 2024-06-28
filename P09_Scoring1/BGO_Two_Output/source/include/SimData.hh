@@ -3,39 +3,39 @@
 #ifndef SimData_h
 #define SimData_h 1
 
-#include "globals.hh"
-#include <vector>
 #include <tuple>
+#include <vector>
 
-using Hit = std::tuple<G4double, G4double> ;
-class SimData
-{
-public :
-	SimData() = default;
-	~SimData() = default;
+#include "globals.hh"
 
-	SimData( const SimData& ) = delete;
-	void operator = (const SimData& ) = delete;
-	
-	void Fill ( G4double eval, G4double sval) ;	
-        void Initialize();
-	const std::vector<Hit>& GetRecord() const;
+using Hit = std::tuple<G4double, G4double>;
 
-private :
-	std::vector<Hit> Record ;	
+class SimData {
+ public:
+  SimData() = default;
+  ~SimData() = default;
+
+  SimData(const SimData&) = delete;
+  void operator=(const SimData&) = delete;
+
+  void Fill(G4double eval, G4double sval);
+  void Initialize();
+  const std::vector<Hit>& GetRecord() const;
+
+ private:
+  std::vector<Hit> Record;
 };
 
-inline void SimData::Fill(G4double eval, G4double sval) 
-	{
-          Record.emplace_back(eval, sval);	
-	}	
-inline void SimData::Initialize()
-	{
-	  Record.clear();
-	}
-inline const std::vector<Hit>& SimData::GetRecord() const
-	{	
-	  return Record ;
-	}
+inline void SimData::Fill(G4double eval, G4double sval) {
+  Record.emplace_back(eval, sval);
+}
+
+inline void SimData::Initialize() {
+  Record.clear();
+}
+
+inline const std::vector<Hit>& SimData::GetRecord() const {
+  return Record;
+}
 
 #endif

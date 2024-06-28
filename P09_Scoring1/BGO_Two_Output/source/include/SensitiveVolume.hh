@@ -4,38 +4,37 @@
 #ifndef SensitiveVolume_h
 #define SensitiveVolume_h 1
 
-#include "G4VSensitiveDetector.hh"
-
 #include <tuple>
 #include <vector>
+
+#include "G4VSensitiveDetector.hh"
 
 class G4Step;
 class SimData;
 
 //-----------------------------------------------------------------------
-  class SensitiveVolume : public G4VSensitiveDetector
+class SensitiveVolume : public G4VSensitiveDetector
 //-----------------------------------------------------------------------
 {
-  public:
-      SensitiveVolume(G4String);
-     ~SensitiveVolume() override ;
+ public:
+  SensitiveVolume(G4String);
+  ~SensitiveVolume() override;
 
-      void Initialize(G4HCofThisEvent*) override;
-      G4bool ProcessHits(G4Step*, G4TouchableHistory*) override;
-      void EndOfEvent(G4HCofThisEvent*) override;
+  void Initialize(G4HCofThisEvent*) override;
+  G4bool ProcessHits(G4Step*, G4TouchableHistory*) override;
+  void EndOfEvent(G4HCofThisEvent*) override;
 
-      void SetSimData(SimData* data);
-private:
-	G4double fEdep;
-        G4double fStep;
-	SimData* simdata;
+  void SetSimData(SimData* data);
 
+ private:
+  G4double fEdep;
+  G4double fStep;
+  SimData* simdata;
 };
 
-inline void SensitiveVolume::SetSimData(SimData* data)
-	{ 
-	  G4cout << " simdata set by SensitiveVolume "<< G4endl;
-	  simdata = data;
-	}
+inline void SensitiveVolume::SetSimData(SimData* data) {
+  G4cout << " simdata set by SensitiveVolume " << G4endl;
+  simdata = data;
+}
 
 #endif

@@ -8,20 +8,14 @@
 class G4Event;
 class G4ParticleGun;
 
-//------------------------------------------------------------------------------
-  class PrimaryGenerator : public G4VUserPrimaryGeneratorAction
-//------------------------------------------------------------------------------
-{
-  public:
-    PrimaryGenerator();    
-   ~PrimaryGenerator();
+class PrimaryGenerator : public G4VUserPrimaryGeneratorAction {
+ public:
+  PrimaryGenerator();
+  ~PrimaryGenerator() override;
 
-  public:
-    void GeneratePrimaries(G4Event*);
+  void GeneratePrimaries(G4Event* /*anEvent*/) override;
 
-  private:
-    G4ParticleGun* fpParticleGun;
+ private:
+  G4ParticleGun* fpParticleGun;
 };
 #endif
-
-
